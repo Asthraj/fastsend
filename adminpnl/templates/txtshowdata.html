@@ -19,7 +19,7 @@
     <tbody>
     <!-- jinja2 Technique -->
     {% if d %}
-    <form  method ="post" action="{% url 'sendwhatsapp' %}">
+    <form  method ="post" action="{% url 'sendsms' %}">
       {% csrf_token %}
     {% for i in d %}
 
@@ -30,13 +30,11 @@
         <td>{{i.Mail}}</td>
 
         <td><input type="checkbox" name="{{i.Phone}}" id="{{i.Phone}}" value="1"></td>
-
       </tr>
-
     {% endfor %}
 
     {% endif %}
- {% csrf_token %}
+      {% csrf_token %}
 <!--     <label for="fnum">Sender number:</label><br>-->
 <!--  <input type="text" id="fnum" name="fnum" value=""><br>-->
   <label for="message">Message:</label><br>
@@ -65,7 +63,7 @@ checkAll.addEventListener("click", function() {
 });
 
 </script>
-<!--<form  method ="post" action="{% url 'sendwhatsapp' %}">-->
+<!--<form  method ="post" action="{% url 'sendsms' %}">-->
 <!--                {% csrf_token %}-->
 <!--&lt;!&ndash;     <label for="fnum">Sender number:</label><br>&ndash;&gt;-->
 <!--&lt;!&ndash;  <input type="text" id="fnum" name="fnum" value=""><br>&ndash;&gt;-->

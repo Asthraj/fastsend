@@ -12,14 +12,14 @@
         <th>phone Number</th>
         <th>Mail</th>
         <th>Select all</th>
-        <th><input type="checkbox" id="checkAll" ></th>
+        <th><input type="checkbox" id="checkAll"  ></th>
 
       </tr>
     </thead>
     <tbody>
     <!-- jinja2 Technique -->
     {% if d %}
-    <form  method ="post" action="{% url 'sendwhatsapp' %}">
+    <form method="post" action="{% url 'dataexport' %}">
       {% csrf_token %}
     {% for i in d %}
 
@@ -30,29 +30,33 @@
         <td>{{i.Mail}}</td>
 
         <td><input type="checkbox" name="{{i.Phone}}" id="{{i.Phone}}" value="1"></td>
-
       </tr>
-
     {% endfor %}
 
     {% endif %}
- {% csrf_token %}
-<!--     <label for="fnum">Sender number:</label><br>-->
-<!--  <input type="text" id="fnum" name="fnum" value=""><br>-->
-  <label for="message">Message:</label><br>
-  <input type="textarea" id="message" name="message">
-  <input type="submit" value="send">
+      <label for="suff">Prefix</label>
+  <input type="text" id="suff" name="suff"><br><br>
+      <input type="submit" value="Export selected contacts" >
     </form>
     </tbody>
   </table>
 
 </div>
 
+
 <!--<button><div align="center"><a href="exporttomail">Export VCF to Mail</a></div></button>-->
 
 <!--<h1>Enter receiver id</h1>-->
 
+<!--<form action="exporttomail">-->
+<!--  <label for="fname">Gmail id</label>-->
+<!--  <input type="text" id="fname" name="fname"><br><br>-->
+<!--&lt;!&ndash;  <label for="lname">Last name:</label>&ndash;&gt;-->
+<!--&lt;!&ndash;  <input type="text" id="lname" name="lname"><br><br>&ndash;&gt;-->
+<!--&lt;!&ndash;  <input type="submit" value="Submit">&ndash;&gt;-->
 
+<!--  <input type="submit" value="Export to mail">-->
+<!--</form>-->
 <!--<a href="{% url 'exportmail' %}">Send email</a>-->
 <script>
 const checkAll = document.getElementById("checkAll");
@@ -65,14 +69,6 @@ checkAll.addEventListener("click", function() {
 });
 
 </script>
-<!--<form  method ="post" action="{% url 'sendwhatsapp' %}">-->
-<!--                {% csrf_token %}-->
-<!--&lt;!&ndash;     <label for="fnum">Sender number:</label><br>&ndash;&gt;-->
-<!--&lt;!&ndash;  <input type="text" id="fnum" name="fnum" value=""><br>&ndash;&gt;-->
-<!--  <label for="message">Message:</label><br>-->
-<!--  <input type="textarea" id="message" name="message">-->
-<!--  <input type="submit" value="send">-->
-<!--</form>-->
 
 {% endblock %}
 {% block title %}Show data{% endblock %}

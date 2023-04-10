@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+  <head>
+	  {% load static %}
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>{% block title %}{% endblock %}</title>
+<!--  nav css  -->
+    <link href="{% static 'https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' %}" rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href='=https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+
+
+	<link rel="stylesheet" href="{% static 'css/style.css'%}">
+<!-- end nav css   -->
+<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+		<link rel="stylesheet" href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+		<link rel="stylesheet" href="{% static 'sidebar/css/style.css' %}">
+	  {% block head %}{% endblock %}
+  </head>
+  <body>
+  <div class="container-fluid">
+
+
+
+<center>
+
+
+		<div class="container-fluid" style="margin-bottom: -40px;">
+			<nav class="navbar navbar-expand-lg ftco_navbar ftco-navbar-light" id="ftco-navbar">
+		    <div class="container">
+
+
+<img src="https://yt3.ggpht.com/a/AATXAJyRrKoOgFALgFAY0g5VcyQvXIS807ylaZMr2Q=s900-c-k-c0xffffffff-no-rj-mo" height="100px" width="200px">
+		    	<marquee><img src="{% static 'adminpnl/fastsend.png' %}" height="100px" width="200px"></marquee>
+
+		      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+		        <span class="fa fa-bars"></span> Menu
+		      </button>
+		      <div class="collapse navbar-collapse" id="ftco-nav">
+				  </center>
+		        <ul class="navbar-nav ml-auto mr-md-3">
+<!--		        	<li class="nav-item active"><a href="/user" class="nav-link">Home</a></li>-->
+		        	<li class="nav-item"><a href="logout" class="nav-link"></a></li>
+		          <li class="nav-item"></li>
+		        </ul>
+		      </div>
+		    </div>
+		  </nav>
+    <!-- END nav -->
+  </div>
+
+
+
+	  <div class="row">
+		  <div class="col-12">
+<!--			  sidebar-->
+
+			  <div class="wrapper d-flex align-items-stretch" style="height: 1100px; ">
+			<nav id="sidebar">
+				<div class="custom-menu">
+					<button type="button" id="sidebarCollapse" class="btn btn-primary">
+	          <i class="fa fa-bars"></i>
+	          <span class="sr-only">Toggle Menu</span>
+	        </button>
+        </div>
+				<div class="p-4 pt-5">
+
+		  		<h1><a  class="logo">FastSend</a></h1>
+					  <button><a href="backtohome">HOME</a></button>
+                    <h3><a  class="logo" style="color:white">Admin Penal </a></h3>
+	        <ul class="list-unstyled components mb-5">
+	          <li class="active">
+
+	            <a href="#category" data-toggle="collapse" aria-expanded="false" >About</a>
+	            <a href="#contactus" data-toggle="collapse" aria-expanded="false" >contact us</a>
+	            <a href="#help" data-toggle="collapse" aria-expanded="false" >Help</a>
+
+<!--				     <h2 class="form-title">Welcome to FastSend</h2>-->
+                    <p class="loginhere">
+<!--                       Login successful-->
+
+					<a  href='myview' >send file via gmail</a>
+				  <a  href="myviewt">Send message via text</a>
+				  <a  href='myvieww'>Send message via whatsapp</a>
+				  <a  href='myviewe'>Export to device</a>
+
+
+	          </li>
+				<button><a href="logout">LOGOUT</a></button>
+
+	        </ul>
+
+	        <div class="footer">
+	        	<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | FastSend
+						</p>
+	        </div>
+
+	      </div>
+    	</nav>
+				  <div class="container" style="margin-left:100px">
+					  <div class="row">
+						  <div clas="col-12">
+{% block content %}{% endblock %}</div>
+				  </div>
+				  </div>
+
+<!--			  end sidebar-->
+
+			  </div>
+		  </div>
+	  </div>
+  </div>
+
+{% block js %} {% endblock %}
+<!--  nav js-->
+  <script src="{% static 'js/jquery.min.js'%}"></script>
+  <script src="{% static 'js/popper.js' %}"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/main.js' %}"></script>
+<!--  end nav js-->
+<!--	  sidebar js-->
+
+   <script src="{% static 'sidebar/js/jquery.min.js' %}"></script>
+    <script src="{% static 'sidebar/js/popper.js' %}"></script>
+    <script src="{% static 'sidebar/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'sidebar/js/main.js' %}"></script>
+<!--	  end sidebarjs-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

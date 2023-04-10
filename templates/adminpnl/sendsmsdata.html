@@ -1,0 +1,15 @@
+{% extends 'adminpnl/adminbase.html'%}
+{% block content %}
+
+<form  method = "post" action="{% url 'sendsms' %}">
+                {% csrf_token %}
+  <label for="fname">Receiver name:</label><br>
+  <input type="text" id="fname" name="fname" value=""><br>
+<!--     <label for="fnum">Sender number:</label><br>-->
+<!--  <input type="text" id="fnum" name="fnum" value=""><br>-->
+  <label for="message">Message:</label><br>
+  <input type="text" id="message" name="message" value="hye">
+    <button><a  href="sendsms">send</a></button>
+</form>
+
+{% endblock %}

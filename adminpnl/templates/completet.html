@@ -1,0 +1,22 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>successful</title>
+    <script>
+      var count = 5;
+      var timer = setInterval(function() {
+        count--;
+        if (count <= 0) {
+          clearInterval(timer);
+          window.location.href = "myviewt";
+        }
+        document.getElementById("countdown").innerHTML = count;
+      }, 1000);
+    </script>
+  </head>
+  <body>
+    <h1>Message send successfully</h1>
+    <p>You will be redirected in <span id="countdown">5</span> seconds.</p>
+  </body>
+</html>
