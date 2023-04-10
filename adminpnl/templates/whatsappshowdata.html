@@ -1,0 +1,71 @@
+{% extends 'adminpnl/adminbase.html'%}
+{% block content %}
+
+
+<div class="container">
+  <h2 class="text-center"><u>Contacts</u></h2><br>
+  <table class="table table-light table-striped">
+    <thead>
+      <tr>
+        <th>S.no.</th>
+        <th>Name</th>
+        <th>phone Number</th>
+        <th>Mail</th>
+        <th>Select all</th>
+        <th><input type="checkbox" id="checkAll" ></th>
+
+      </tr>
+    </thead>
+    <tbody>
+    <!-- jinja2 Technique -->
+    {% if d %}
+    <form method="post" action="{% url 'showdata' %}">
+      {% csrf_token %}
+    {% for i in d %}
+
+      <tr>
+        <td>{{i.sno}}</td>
+        <td>{{i.Name}}</td>
+        <td>{{i.Phone}}</td>
+        <td>{{i.Mail}}</td>
+
+        <td><input type="checkbox" name="check_box" id="{{i.Phone}}"></td>
+      </tr>
+    {% endfor %}
+
+    {% endif %}
+    </form>
+    </tbody>
+  </table>
+
+</div>
+<button><div align="center"><a href="dataexport">Export VCF</a></div></button>
+
+<!--<button><div align="center"><a href="exporttomail">Export VCF to Mail</a></div></button>-->
+
+<!--<h1>Enter receiver id</h1>-->
+
+<form action="exporttomail">
+  <label for="fname">Gmail id</label>
+  <input type="text" id="fname" name="fname"><br><br>
+<!--  <label for="lname">Last name:</label>-->
+<!--  <input type="text" id="lname" name="lname"><br><br>-->
+<!--  <input type="submit" value="Submit">-->
+
+  <input type="submit" value="Export to mail">
+</form>
+<!--<a href="{% url 'exportmail' %}">Send email</a>-->
+<script>
+const checkAll = document.getElementById("checkAll");
+const checkboxes = document.querySelectorAll("input[type='checkbox']:not(#checkAll)");
+
+checkAll.addEventListener("click", function() {
+  for (let i = 0; i < checkboxes.length; i++) {
+    checkboxes[i].checked = this.checked;
+  }
+});
+
+</script>
+
+{% endblock %}
+{% block title %}Show data{% endblock %}
